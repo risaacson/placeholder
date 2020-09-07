@@ -1,3 +1,43 @@
+Placeholder
+-----------
+
+Based on https://mherman.org/blog/dockerizing-a-react-app/
+
+```
+$ docker build -t sample:dev .
+```
+
+```
+$ docker run \
+    -it \
+    --rm \
+    -v ${PWD}:/app \
+    -v /app/node_modules \
+    -p 3001:3000 \
+    -e CHOKIDAR_USEPOLLING=true \
+    sample:dev
+```
+
+```
+$ docker-compose up -d --build
+```
+
+```
+$ docker-compose stop
+```
+
+```
+$ docker build -f Dockerfile.prod -t sample:prod .
+```
+
+```
+docker run -it --rm -p 1337:80 sample:prod
+```
+
+```
+$ docker-compose -f docker-compose.prod.yml up -d --build
+```
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
